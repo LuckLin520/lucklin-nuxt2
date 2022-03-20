@@ -1,0 +1,21 @@
+{
+  "name": "lucklin-nuxt",
+  "version": "1.0.0",
+  "description": "description",
+  "author": "lucklin",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.9.6",
+    "ant-design-vue": "^1.1.10",
+    "cookie-universal-nuxt": "^2.1.3",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
+    "nuxt": "^2.0.0"
+  }
+}

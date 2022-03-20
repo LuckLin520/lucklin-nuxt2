@@ -1,0 +1,15 @@
+# dependencies
+/node_modules
+
+# production
+.nuxt
+dist
+.idea
+*.zip
+*.rar
+#/src/config.js
+
+# misc
+.DS_Store
+npm-debug.log*
+
