@@ -1,32 +1,15 @@
 <template>
-  <div>
-    <my-header></my-header>
-    <nuxt />
-    <my-footer></my-footer>
-  </div>
+    <div>
+      <my-header></my-header>
+      <nuxt />
+      <my-footer></my-footer>
+    </div>
 </template>
 <script>
-import myHeader from "@/components/header";
-import myFooter from "@/components/footer";
+import MyHeader from "@/components/header";
+import MyFooter from "@/components/footer";
 export default {
-  components: { myHeader, myFooter },
-  data() {
-    return {
-    }
-  },
-  computed: {
-    userData() {
-      return this.$store.state.user.userData;
-    }
-  },
-  mounted() {
-
-  },
-  methods: {
-    
-  }
-}
+  components: { MyHeader, MyFooter }
+};
 </script>
-<style lang="less" scoped>
 
-</style>

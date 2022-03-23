@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import {
-    ConfigProvider, message, Modal, Button, Result
+    ConfigProvider, message, Modal
 } from 'ant-design-vue'
 
-Vue.use(ConfigProvider).use(Button).use(Result)
+Vue.use(ConfigProvider)
 
 Vue.prototype.$message = message
 Vue.prototype.$modal = Modal

@@ -39,33 +39,40 @@
         </dl>
       </div>
     </div>
-    <a-button type="primary">返回首页</a-button>
+    <a-button v-if="!token" type="primary" @click="onLogin">登录</a-button>
+    <a-button v-else @click="onLogout">注销</a-button>
   </div>
 </template>
 
 <script>
-import {Button} from 'ant-design-vue'
-import 'ant-design-vue/lib/button/style/index.less'
+import { Button } from "ant-design-vue";
 export default {
   layout: 'zcw',
   components: {
-    [Button.name]: Button
+    [Button.name]: Button,
   },
   data() {
-    return {
-    
-    }
+    return {};
   },
-  async fetch({ store, app }) {
-
+  async asyncData({store, app}) {
+    // const res = await store.dispatch('user/login', {userAccount:'15348298177',userPwd:'a123123',userType:0})
+    return {}
   },
   computed: {
-  
+    token() {
+      return this.$store.state.user.token;
+    },
   },
-  mounted(){
-    
+  mounted() {},
+  methods: {
+    onLogin() {
+      this.$store.dispatch("user/login", {userAccount:'15348298177',userPwd:'a123123',userType:0});
+    },
+    onLogout() {
+      this.$store.dispatch("user/logout");
+    },
   },
-}
+};
 </script>
 
 <style scoped lang='less' scoped>

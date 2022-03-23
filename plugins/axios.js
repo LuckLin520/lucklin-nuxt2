@@ -1,6 +1,6 @@
 export default function ({ store, redirect, app }) {
 	const {$axios,$cookies} = app
-	const {$message} = store._vm.$message
+	const {$message} = store._vm
 
 	$axios.defaults.timeout = 15000
 	$axios.onRequest(config => {
@@ -12,9 +12,13 @@ export default function ({ store, redirect, app }) {
 		if($cookies.get('token')) config.headers.common['token'] = $cookies.get('token') 
 	})
 	$axios.onError(error => {
-		
-		// if(error.message.indexOf('timeout of')>-1) $message.error('请求超时！')
-		if(process.client) $message.error(error.message)
+		if(process.client) {
+			const statusMap = {
+				"408":'请求超时',
+				"502":'服务器错误'
+			}
+			$message.error(statusMap[error.response.status])
+		}
 	})
 	$axios.interceptors.response.use(response => {
 		

@@ -37,11 +37,6 @@ export default {
       ]
     }
   },
-  computed: {
-    userData(){
-      return this.$store.state.user.userData
-    }
-  },
 }
 </script>
 

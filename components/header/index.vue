@@ -1,24 +1,27 @@
 <template>
   <div class="myHeader">
-    
+    <MyIcon type="cart" />
+    <MyIcon type="gongwenbao" />
+    <span>{{ token }}</span>
   </div>
 </template>
 
 <script>
+import MyIcon from "@/components/my-icon";
 export default {
-    data() {
-        return {
-        }
+  components: {
+    MyIcon,
+  },
+  data() {
+    return {};
+  },
+  computed: {
+    token() {
+      return this.$store.state.user.token;
     },
-    computed: {
-        userData() {
-            return this.$store.state.user.userData
-        }
-    },
-    mounted() {
-      
-    }
-}
+  }
+
+};
 </script>
 
 <style lang='less' scoped>

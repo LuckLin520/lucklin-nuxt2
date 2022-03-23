@@ -1,4 +1,7 @@
-const theme = require('./assets/theme')
+import theme from "./assets/theme"
+import apiconfig from './api.config'
+const baseURL = apiconfig[process.env.NODE_ENV]
+const isDev = process.env.NODE_ENV === 'development'
 export default {
   ssr: true,
   // target: 'static',
@@ -8,9 +11,6 @@ export default {
   head: {
     htmlAttrs: {
       lang: 'zh-CN',
-    },
-    bodyAttrs: {
-      class: 'theme-green'
     },
     title: 'title',
     meta: [
@@ -62,15 +62,15 @@ export default {
     // proxy: process.env.NODE_ENV === 'development', // 是否使用代理
     proxy: true,
     prefix: '/api',
-    credentials: true
+    credentials: true,
+    baseURL,
   },
   proxy: {
     '/api': {
-      target: 'APIURL',
+      target: baseURL,
       changeOrigin: true,
       pathRewrite: { '^/api': '' }
-    },
-    
+    }
   },
   /*
   ** Build configuration
@@ -85,15 +85,39 @@ export default {
         modifyVars: theme
       }
     },
-    // extractCSS: true, // 提取css到单独link文件
+    babel: {
+      plugins: [
+        [
+          'import',
+          {
+            libraryName: 'ant-design-vue',
+            libraryDirectory: 'es',
+            style:true
+          },
+        ]
+      ],
+    },
+    transpile: ['ant-design-vue'],
+    extractCSS: !isDev, // 提取css到单独link文件
     extend(config, ctx) {
     },
+    // publicPath: './'
   },
   server: {
     port: 3000, // default: 3000
     host: '0.0.0.0', // default: localhost
     timing: {
       total: true
+    }
+  },
+  generate: {
+    routes() {//ssg使用
+      return new Promise(rs=>{
+        setTimeout(()=>{
+          let arr = [1,2,3].map(v=> ({route: '/'+v,payload: {id:v}}))
+          rs(arr)
+        }, 2000)
+      })
     }
   }
 }
