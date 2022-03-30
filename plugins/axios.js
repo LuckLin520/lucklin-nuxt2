@@ -1,21 +1,20 @@
-export default function ({ store, redirect, app }) {
+export default function ({ store, redirect, app, error }) {
   const { $axios, $cookies } = app
   const { $message } = store._vm
 
-  $axios.defaults.timeout = 15000
+  $axios.defaults.timeout = 10000
   $axios.onRequest(config => {
     if ($cookies.get('token')) config.headers.common['token'] = $cookies.get('token')
   })
-  $axios.onError(error => {
+  $axios.onError(err => {
     if (process.client) {
-      console.log(error)
       const statusMap = {
         404: '请求未找到',
         408: '请求超时',
         502: '服务器错误',
         504: '网关超时'
       }
-      $message.error(statusMap[error.response.status])
+      $message.error(statusMap[err.response.status])
     }
   })
   $axios.interceptors.response.use(response => {

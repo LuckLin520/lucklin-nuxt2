@@ -6,10 +6,7 @@
 
 <script>
 export default {
-  validate({ params, store }) {
-    //ssr使用
-    // 校验 `params.id` 是否存在
-    // return false
+  validate({ params, store, error }) {
     return /^\d+$/.test(params.root)
   },
   data() {

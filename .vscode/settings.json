@@ -3,7 +3,6 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
   "eslint.validate": [
-    "html",
     "vue",
     "javascript",
     "jsx"

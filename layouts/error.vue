@@ -1,7 +1,11 @@
 <template>
   <div class="error">
     <div v-if="errorMap[error.statusCode]">
-      <a-result :status="error.statusCode.toString()" :title="errorMap[error.title]" :subTitle="errorMap[error.subTitle]">
+      <a-result
+        :status="error.statusCode.toString()"
+        :title="errorMap[error.statusCode].title"
+        :subTitle="errorMap[error.statusCode].subTitle"
+      >
         <template v-slot:extra>
           <nuxt-link to="/"><a-button type="primary">返回首页</a-button></nuxt-link>
         </template>
@@ -24,13 +28,10 @@ export default {
       errorMap: {
         404: {
           title: '404',
-          subTitle: '对不起，您访问的页面不存在。'
+          subTitle: '非常抱歉，您访问的页面不存在'
         }
       }
     }
-  },
-  mounted() {
-    // console.log(this.error)
   }
 }
 </script>
