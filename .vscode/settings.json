@@ -1,3 +1,15 @@
 {
-    "liveServer.settings.multiRootWorkspaceName": "lucklin-nuxt2"
+  "eslint.enable": true,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "eslint.validate": [
+    "html",
+    "vue",
+    "javascript",
+    "jsx"
+  ],
+  "editor.rulers": [140],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }

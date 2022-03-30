@@ -4,12 +4,12 @@
   </a-config-provider>
 </template>
 <script>
-import zh_CN from "ant-design-vue/es/locale-provider/zh_CN";
+import zh_CN from 'ant-design-vue/es/locale-provider/zh_CN'
 export default {
   data() {
     return {
-      zh_CN,
-    };
+      zh_CN
+    }
   }
-};
+}
 </script>

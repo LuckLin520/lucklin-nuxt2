@@ -13,7 +13,8 @@
 // @border-color-base: #d9d9d9; // 边框色
 // @box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // 浮层阴影
 export default {
-    'primary-color': 'orange',
-    'link-color': 'red',
-    'mainWidth': '1200px'
+  'primary-color': 'orange',
+  'link-color': 'red',
+  'border-radius-base': '0',
+  mainWidth: '1200px'
 }

@@ -45,37 +45,41 @@
 </template>
 
 <script>
-import { Button } from "ant-design-vue";
+import { Button } from 'ant-design-vue'
 export default {
   layout: 'zcw',
   components: {
-    [Button.name]: Button,
+    [Button.name]: Button
   },
   data() {
-    return {};
+    return {}
   },
-  async asyncData({store, app}) {
+  async asyncData({ store, app }) {
     // const res = await store.dispatch('user/login', {userAccount:'15348298177',userPwd:'a123123',userType:0})
     return {}
   },
   computed: {
     token() {
-      return this.$store.state.user.token;
-    },
+      return this.$store.state.user.token
+    }
   },
   mounted() {},
   methods: {
     onLogin() {
-      this.$store.dispatch("user/login", {userAccount:'15348298177',userPwd:'a123123',userType:0});
+      this.$store.dispatch('user/login', {
+        userAccount: '15348298177',
+        userPwd: 'a123123',
+        userType: 0
+      })
     },
     onLogout() {
-      this.$store.dispatch("user/logout");
-    },
-  },
-};
+      this.$store.dispatch('user/logout')
+    }
+  }
+}
 </script>
 
-<style scoped lang='less' scoped>
+<style scoped lang="less" scoped>
 .home {
   background: #fff;
   position: relative;
@@ -97,7 +101,7 @@ export default {
         padding: 44px 0 40px 0;
         position: relative;
         &::after {
-          content: "";
+          content: '';
           position: absolute;
           width: 1px;
           height: 80px;

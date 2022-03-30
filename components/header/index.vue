@@ -7,24 +7,23 @@
 </template>
 
 <script>
-import MyIcon from "@/components/my-icon";
+import MyIcon from '@/components/my-icon'
 export default {
   components: {
-    MyIcon,
+    MyIcon
   },
   data() {
-    return {};
+    return {}
   },
   computed: {
     token() {
-      return this.$store.state.user.token;
-    },
+      return this.$store.state.user.token
+    }
   }
-
-};
+}
 </script>
 
-<style lang='less' scoped>
+<style lang="less" scoped>
 .myHeader {
   height: 80px;
 }

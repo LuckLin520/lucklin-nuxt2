@@ -8,17 +8,16 @@ module.exports = {
       args: 'start',
       log_date_format: 'YYYY-MM-DD HH:mm Z',
       error_file: '/pm2_logs_pc/pc_error.log',
-      "watch": [
-          ".nuxt"
-      ],
-      env_development: {//=>pm2 start ecosystem.config.js --watch --env development
-        "NODE_ENV": "development",
+      watch: ['.nuxt'],
+      env_development: {
+        //=>pm2 start ecosystem.config.js --watch --env development
+        NODE_ENV: 'development'
       },
       env_production: {
-        "NODE_ENV": "production"
+        NODE_ENV: 'production'
       },
       env_preview: {
-        "NODE_ENV": "preview"
+        NODE_ENV: 'preview'
       }
     }
   ]
