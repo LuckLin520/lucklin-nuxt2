@@ -36,5 +36,10 @@
     "less": "^3.0.0",
     "less-loader": "^5.0.0",
     "prettier": "^2.6.1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
   }
 }
