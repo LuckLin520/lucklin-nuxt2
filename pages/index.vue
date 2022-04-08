@@ -6,21 +6,21 @@
 </template>
 
 <script>
-import { Button } from 'ant-design-vue';
+import { Button } from 'ant-design-vue'
 export default {
   layout: 'zcw',
   components: {
     [Button.name]: Button
   },
   data() {
-    return {};
+    return {}
   },
   async asyncData({ store, app, error }) {
-    return {};
+    return {}
   },
   computed: {
     token() {
-      return this.$store.state.user.token;
+      return this.$store.state.user.token
     }
   },
   mounted() {},
@@ -30,13 +30,13 @@ export default {
         userAccount: '15348298177',
         userPwd: 'a123123',
         userType: 0
-      });
+      })
     },
     onLogout() {
-      this.$store.dispatch('user/logout');
+      this.$store.dispatch('user/logout')
     }
   }
-};
+}
 </script>
 
 <style scoped lang="less" scoped>
