@@ -15,7 +15,8 @@
     "start:beta": "cross-env NODE_ENV=beta nuxt start",
     "start:preview": "cross-env NODE_ENV=preview nuxt start",
     "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
-    "lint:fix": "eslint --fix --ext .js,.ts,.vue --ignore-path .gitignore ."
+    "lint:fix": "eslint --fix --ext .js,.ts,.vue --ignore-path .gitignore .",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.9.6",
@@ -36,6 +37,7 @@
     "husky": "^7.0.4",
     "less": "^3.0.0",
     "less-loader": "^5.0.0",
+    "lint-staged": "^12.3.7",
     "prettier": "^2.6.1"
   },
   "husky": {
