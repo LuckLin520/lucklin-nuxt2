@@ -44,5 +44,10 @@
     "*.{js,jsx,vue,ts,tsx}": [
       "yarn lint:fix"
     ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }
