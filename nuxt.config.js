@@ -6,9 +6,6 @@ const isDev = process.env.NODE_ENV === 'development'
 export default {
   ssr: true,
   // target: 'static',
-  /*
-   ** Headers of the page
-   */
   head: {
     htmlAttrs: {
       lang: 'zh-CN'
@@ -23,9 +20,6 @@ export default {
       { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
-    // script: [
-    //   { src: 'https://cdn.bootcdn.net/ajax/libs/socket.io/2.3.0/socket.io.slim.js'}
-    // ]
   },
   /*
    ** Customize the progress-bar color
@@ -48,8 +42,7 @@ export default {
    */
   modules: ['cookie-universal-nuxt', '@nuxtjs/axios'],
   axios: {
-    // proxy: process.env.NODE_ENV === 'development', // 是否使用代理
-    proxy: true,
+    proxy: false,
     prefix: '/api',
     credentials: true,
     baseURL

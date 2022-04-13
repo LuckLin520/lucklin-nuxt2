@@ -1,28 +1,17 @@
 <template>
   <div class="error">
-    <div v-if="errorMap[error.statusCode]">
-      <a-result
-        :status="error.statusCode.toString()"
-        :title="errorMap[error.statusCode].title"
-        :subTitle="errorMap[error.statusCode].subTitle"
-      >
-        <template v-slot:extra>
-          <nuxt-link to="/"><a-button type="primary">返回首页</a-button></nuxt-link>
-        </template>
-      </a-result>
+    <div v-if="errorData">
+      <h2>{{ errorData.title }}</h2>
+      <p>{{ errorData.subTitle }}</p>
+      <a-button>返回首页</a-button>
     </div>
     <h1 v-else>An error occurred</h1>
   </div>
 </template>
 
 <script>
-import { Result, Button } from 'ant-design-vue'
 export default {
   props: ['error'],
-  components: {
-    [Result.name]: Result,
-    [Button.name]: Button
-  },
   data() {
     return {
       errorMap: {
@@ -32,11 +21,17 @@ export default {
         }
       }
     }
+  },
+  computed: {
+    errorData() {
+      return this.errorMap[this.error.statusCode]
+    }
   }
 }
 </script>
 <style lang="less" scoped>
 .error {
   padding-top: 10%;
+  text-align: center;
 }
 </style>

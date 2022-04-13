@@ -1,16 +1,23 @@
 <template>
   <div class="home">
-    <a-button v-if="!token" type="primary" @click="onLogin">登录</a-button>
-    <a-button v-else @click="onLogout">注销</a-button>
+    <a-textarea placeholder="Controlled autoSize" style="height: 100px" :autoSize="true" />
+    <a-select style="width: 500px">
+      <a-select-option :key="1">哈哈哈</a-select-option>
+    </a-select>
+    <div>
+      <a-button v-if="!token" type="primary" @click="onLogin">登录</a-button>
+      <a-button v-else @click="onLogout">注销</a-button>
+    </div>
   </div>
 </template>
 
 <script>
-import { Button } from 'ant-design-vue'
+import { Input, Select } from 'ant-design-vue'
 export default {
-  layout: 'zcw',
   components: {
-    [Button.name]: Button
+    [Input.TextArea.name]: Input.TextArea,
+    [Select.name]: Select,
+    [Select.Option.name]: Select.Option
   },
   data() {
     return {}
@@ -41,5 +48,6 @@ export default {
 
 <style scoped lang="less" scoped>
 .home {
+  height: 1900px;
 }
 </style>

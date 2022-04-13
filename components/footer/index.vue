@@ -1,21 +1,10 @@
 <template>
-  <div class="footer">
-    <div class="top">
-      <div class="top-box">
-        <div class="friendship-box" :style="$route.path == '/' ? 'display:block' : 'display:none'">
-          <dl>
-            <dt>友情链接</dt>
-            <dd>
-              <div class="item" v-for="(item, i) of friendships" :key="i">
-                <a :href="item.link" target="_blank" rel="nofollow">{{ item.name }}</a>
-                <span v-if="i != friendships.length - 1" class="spacer">|</span>
-              </div>
-            </dd>
-          </dl>
-        </div>
-      </div>
+  <footer class="footer">
+    <div class="item" v-for="(item, i) of friendships" :key="i">
+      <a :href="item.link" target="_blank" rel="nofollow">{{ item.name }}</a>
+      <span v-if="i != friendships.length - 1" class="spacer">|</span>
     </div>
-  </div>
+  </footer>
 </template>
 
 <script>
@@ -42,47 +31,20 @@ export default {
 
 <style lang="less" scoped>
 .footer {
-  margin-top: 60px;
-  color: #ddd;
-  .top {
-    // height: 280px;
-    background: #30374a;
-    padding-bottom: 15px;
-    .top-box {
-      width: @mainWidth;
-      margin: 0 auto;
-      // padding-top: 32px;
-      .friendship-box {
-        padding-top: 30px;
-        dl {
-          display: flex;
-          dt {
-            margin-right: 14px;
-            white-space: nowrap;
-            margin-top: 2px;
-            font-weight: 600;
-            color: #fff;
-          }
-          dd {
-            display: flex;
-            flex-wrap: wrap;
-            .item {
-              margin-bottom: 8px;
-              a {
-                color: inherit;
-                &:hover {
-                  color: #fff;
-                }
-              }
-              .spacer {
-                margin-right: 10px;
-                margin-left: 5px;
-                font-size: 16px;
-              }
-            }
-          }
-        }
+  background-color: #bbb;
+  display: flex;
+  flex-wrap: wrap;
+  .item {
+    a {
+      color: inherit;
+      &:hover {
+        color: #fff;
       }
+    }
+    .spacer {
+      margin-right: 10px;
+      margin-left: 5px;
+      font-size: 16px;
     }
   }
 }

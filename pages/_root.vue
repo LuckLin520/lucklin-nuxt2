@@ -24,8 +24,6 @@ export default {
       return this.$route.params.root
     }
   },
-  mounted() {
-    console.log(this.$store.state)
-  }
+  mounted() {}
 }
 </script>
