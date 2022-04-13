@@ -1,3 +1,4 @@
+import CompressionPlugin from 'compression-webpack-plugin'
 import theme from './assets/theme'
 import apiconfig from './api.config'
 const baseURL = apiconfig[process.env.NODE_ENV]
@@ -61,6 +62,21 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    plugins: [
+      // gzip
+      new CompressionPlugin({
+        filename: '[path][base].gz[query]',
+        test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
+        threshold: 10240, // 对超过10kb的数据进行压缩
+        deleteOriginalAssets: !isDev // 是否删除原文件
+      })
+    ],
+    optimization: {
+      splitChunks: {
+        minSize: 10000,
+        maxSize: 250000
+      }
+    },
     loaders: {
       less: {
         javascriptEnabled: true,

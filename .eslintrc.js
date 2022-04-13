@@ -5,6 +5,10 @@ module.exports = {
     node: true
   },
   extends: ['plugin:prettier/recommended', 'plugin:nuxt/recommended'],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module'
+  },
   plugins: [],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
