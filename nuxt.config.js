@@ -67,8 +67,8 @@ export default {
       new CompressionPlugin({
         filename: '[path][base].gz[query]',
         test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
-        threshold: 10240, // 对超过10kb的数据进行压缩
-        deleteOriginalAssets: !isDev // 是否删除原文件
+        threshold: 10240 // 对超过10kb的数据进行压缩
+        // deleteOriginalAssets: !isDev // 是否删除原文件
       })
     ],
     optimization: {
@@ -97,7 +97,9 @@ export default {
     },
     transpile: ['ant-design-vue'],
     extractCSS: !isDev, // 提取css到单独link文件
-    extend(config, ctx) {}
+    extend(config, ctx) {
+      config.resolve.alias['@ant-design/icons/lib/dist$'] = require('path').resolve(__dirname, 'assets/antd-icon.js')
+    }
     // publicPath: './'
   },
   server: {

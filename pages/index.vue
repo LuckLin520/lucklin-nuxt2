@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { Input, Select } from 'ant-design-vue'
+import { Input, Select, Modal, Icon } from 'ant-design-vue'
 export default {
   components: {
     [Input.TextArea.name]: Input.TextArea,
@@ -42,6 +42,10 @@ export default {
     onLogout() {
       this.$store.dispatch('user/logout')
     }
+  },
+  mounted() {
+    this.$message.warning('123')
+    Modal.warning({ title: 123, content: 888, closable: true })
   }
 }
 </script>
