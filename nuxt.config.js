@@ -1,9 +1,10 @@
 import CompressionPlugin from 'compression-webpack-plugin'
-import theme from './assets/theme'
+import path from 'path'
+import antDesignThemePlugin from './theme.config'
+import defaultTheme from './assets/theme/default-variables'
 import apiconfig from './api.config'
 const baseURL = apiconfig[process.env.NODE_ENV]
 const isDev = process.env.NODE_ENV === 'development'
-
 export default {
   ssr: true,
   // target: 'static',
@@ -69,7 +70,8 @@ export default {
         test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
         threshold: 10240 // 对超过10kb的数据进行压缩
         // deleteOriginalAssets: !isDev // 是否删除原文件
-      })
+      }),
+      antDesignThemePlugin
     ],
     optimization: {
       splitChunks: {
@@ -79,8 +81,10 @@ export default {
     },
     loaders: {
       less: {
-        javascriptEnabled: true,
-        modifyVars: theme
+        lessOptions: {
+          javascriptEnabled: true,
+          modifyVars: defaultTheme
+        }
       }
     },
     babel: {
@@ -98,7 +102,7 @@ export default {
     transpile: ['ant-design-vue'],
     extractCSS: !isDev, // 提取css到单独link文件
     extend(config, ctx) {
-      config.resolve.alias['@ant-design/icons/lib/dist$'] = require('path').resolve(__dirname, 'assets/antd-icon.js')
+      config.resolve.alias['@ant-design/icons/lib/dist$'] = path.resolve(__dirname, 'assets/antd-icon.js')
     }
     // publicPath: './'
   },

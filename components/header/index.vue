@@ -21,13 +21,15 @@
 </template>
 
 <script>
-import MyIcon from '@/components/my-icon'
+import Vue from 'vue'
 import { Affix } from 'ant-design-vue'
+import MyIcon from '@/components/my-icon'
 import { throttling } from '@/utils/util'
+Vue.use(Affix)
+
 export default {
   components: {
-    MyIcon,
-    [Affix.name]: Affix
+    MyIcon
   },
   data() {
     return {

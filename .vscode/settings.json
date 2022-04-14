@@ -7,7 +7,9 @@
     "javascript",
     "jsx"
   ],
-  "editor.rulers": [140],
+  "editor.rulers": [
+    140
+  ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
