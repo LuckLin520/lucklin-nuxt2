@@ -15,6 +15,9 @@
             </li>
           </ul>
         </nav>
+        <div class="action">
+          <a @click="onChangeColor">{{ theme === 'dark' ? '浅色' : '深色' }}</a>
+        </div>
       </header>
     </transition>
   </a-affix>
@@ -41,6 +44,9 @@ export default {
   computed: {
     token() {
       return this.$store.state.user.token
+    },
+    theme() {
+      return this.$store.state.common.theme
     }
   },
   mounted() {
@@ -65,6 +71,9 @@ export default {
           60
         )
       )
+    },
+    onChangeColor() {
+      this.$store.commit('common/save', { theme: this.theme === 'dark' ? 'default' : 'dark' })
     }
   }
 }
@@ -84,7 +93,6 @@ export default {
   opacity: 0;
 }
 header {
-  background-color: paleturquoise;
   display: flex;
   align-items: center;
   &.showHeaderShadow {
@@ -95,6 +103,12 @@ header {
     li {
       margin: 0 20px;
     }
+  }
+
+  border-bottom: 1px solid var(--border);
+  background-color: var(--bg-card);
+  h1 {
+    color: var(--text);
   }
 }
 </style>

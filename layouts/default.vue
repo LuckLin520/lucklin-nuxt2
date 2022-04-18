@@ -1,6 +1,6 @@
 <template>
   <a-config-provider :locale="zh_CN" :autoInsertSpaceInButton="false">
-    <div id="zcw_wrap">
+    <div id="zcw_wrap" :class="{ dark_theme: theme === 'dark' }">
       <MyHeader />
       <main id="zcw_wrap_main">
         <nuxt />
@@ -19,17 +19,46 @@ export default {
     return {
       zh_CN
     }
+  },
+  computed: {
+    theme() {
+      return this.$store.state.common.theme
+    }
+  },
+  watch: {
+    theme: {
+      handler(theme) {
+        const themeJs = require(`@/assets/theme/${theme}-variables.js`).default
+        if (process.client) less.modifyVars(themeJs)
+      },
+      immediate: true
+    }
   }
 }
 </script>
 
 <style lang="less" scoped>
 #zcw_wrap {
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   #zcw_wrap_main {
     flex: 1;
+  }
+
+  background-color: var(--bg);
+  --text: #1f2225;
+  --bg: #fff;
+  --bg-card: #fff;
+  --border: #efeff5;
+  &.dark_theme {
+    --text: #ffffffe6;
+    --bg: #101014;
+    --bg-card: #18181c;
+    --border: #ffffff17;
+    h1 {
+      color: @primary-color;
+    }
   }
 }
 </style>

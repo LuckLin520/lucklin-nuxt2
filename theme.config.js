@@ -8,7 +8,7 @@ function jsLess(js) {
   let style = '// 该文件js自动生成，是切换主题必须文件，勿删！勿改！\n'
   for (const key in js) {
     let k = key
-    if (!k.includes('@')) k = '@' + key
+    if (k[0] != '@') k = '@' + key
     style += `${k}:${js[key]};\n`
     themeVariables.push(key)
   }
