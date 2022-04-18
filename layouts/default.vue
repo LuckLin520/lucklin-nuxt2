@@ -56,9 +56,6 @@ export default {
     --bg: #101014;
     --bg-card: #18181c;
     --border: #ffffff17;
-    h1 {
-      color: @primary-color;
-    }
   }
 }
 </style>
